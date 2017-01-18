@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script type="text/javascript" src="jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="file/ajaxfileupload.js"></script>
+	<script type="text/javascript" src="file/fileupload.js"></script>
+	<script type="text/javascript" src="file/jquery.upload.js"></script>
+	<script type="text/javascript" src="file/local.file.js"></script>
+	<script type="text/javascript" src="file/plugins.js"></script>
+	<style>
+		input{
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+ <table>
+ 	<tbody>
+ 		<tr>
+      	  <td class="tb-title" >附件<span class="bitian">*
+				<td colspan="6">
+					<input type="text" id="content0" class="form-control input_bi"  name="enclosure[]" >
+					<input type="text" id="post-content0" class="form-control input_bi" value="3" >
+					<input type="type" class="form-control input_bi">				 
+	</body>
+</html>
+
+<script>
+		function count(ele,price){
+			// var num = parseInt($(ele).val());
+			var num = Number($(ele).val());
+			countprice = num*price;
+			console.log(countprice);
+			$(ele).siblings('#post-content0').attr('value',countprice)
+		}
+		// $('input:not(#post-content0)').keyup(function(){
+		// 	count(this,3);
+		// });
+		$('body').on('keyup','input:not(#post-content0)',function(){
+			count(this,3);
+		});
+
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("<b>").appendTo("body");
+  });
+});
+
+
+
+</script>

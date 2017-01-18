@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script type="text/javascript" src="jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="file/ajaxfileupload.js"></script>
+	<script type="text/javascript" src="file/fileupload.js"></script>
+	<script type="text/javascript" src="file/jquery.upload.js"></script>
+	<script type="text/javascript" src="file/local.file.js"></script>
+	<script type="text/javascript" src="file/plugins.js"></script>
+
+</head>
+<body>
+ <table>
+ 	<tbody>
+ 		<tr>
+      	  <td class="tb-title" >附件<span class="bitian">*</span></td>
+				<td colspan="6">
+						<input type="file" class="form-control input_bi">
+						<input type="text" id="content0" class="form-control input_bi"  name="enclosure[]" >
+						<input type="text" id="post-content0" class="form-control input_bi" value="3" readonly>
+						<span class="help-block red"></span>
+						<span class="pull-right btn_wrap">
+							 <input type="button" value="上传附件" onclick="doUploadImg(0)" class="btn btn-default pull-right">
+						</span>					 
+				</td>
+		</tr>     
+ 	</tbody>
+ </table>
+</body>
+</html>
+
+<script type="text/javascript">
+	$(function(){
+		var junprice = 3;
+		// console.log(junprice);
+		$('#content0').keyup(function(){
+			console.log(junprice);
+			var num = parseInt($(this).val())
+			var price;
+			// console.log(num);
+			price = junprice*num;
+			// console.log(price);
+			$(this).siblings('#post-content0').attr('value',price)
+
+		});
+		 // window.open('https://google.com');
+		$('input[type="file"]').change(function(){
+				$this = $(this);
+				var path = $('input[type="file"]').val();
+				path.replce();
+				$this.attr('value',path);
+				getFileName(path);
+		});
+
+	});
+    
+    
+
+	function getFileName(path){
+		var pos1 = path.lastIndexOf("");
+		var pos2 = path.lastIndexOf('');
+		var pos = Math.max(pos1, pos2)
+		console.log(pos1);
+		return path.substring(pos+1);
+	}
+</script>

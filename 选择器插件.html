@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script type="text/javascript" src="jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="file/ajaxfileupload.js"></script>
+	<script type="text/javascript" src="file/fileupload.js"></script>
+	<script type="text/javascript" src="file/jquery.upload.js"></script>
+	<script type="text/javascript" src="file/local.file.js"></script>
+	<script type="text/javascript" src="file/plugins.js"></script>
+</head>
+<body>
+
+<div style="border: 1px solid red;min-height:50px">
+	<button data-hook="nav-menu-toggle">Toggle Nav Menu</button>
+
+	<nav data-hook="nav-menu">
+		<ul>
+			<li><a href="/">West Philadelphia</a></li>
+			<li><a href="/cab">Cab Whistling</a></li>
+			<li><a href="/throne">Throne Sitting</a></li>
+		</ul>
+	</nav>	
+</div>
+
+</body>
+</html>
+
+<script>
+	//$.extend({});调用不会扩展到对象的实例上
+	;(function($){
+		$.extend({
+			hook:function(hookName){
+				var selector;
+				if(!hookName || hookName === '*'){
+					selector = '[data-hook="*"]';
+				}else{
+					selector = '[data-hook='+hookName+']';
+				}
+				return $(selector);
+			},
+			color: function(value){
+				if(!value){
+					return $.css('color');
+				}else{
+					return $.css('color',value);
+				}
+			}
+		});
+
+	})(jQuery)
+
+	//$.fn.extend({});调用扩展到对象的prototype实例上
+	;(function($){
+		$.fn.extend({
+			color: function(value){
+				if (!value) {
+					return this.css("color");
+				}else{
+					return this.css("color",value);
+				}
+			}
+		});
+	})(jQuery);
+
+	
+	console.log($('body').color('red'));
+
+	$.hook('nav-menu-toggle').on('click',function(event){
+		$.hook("nav-menu").toggle();
+		// console.log(event.target);
+		// console.log($(this));
+		console.log($.hook("nav-menu"));
+	});
+
+	// 原始选择器
+	// $('[data-hook="nav-menu-toggle"]').on('click',function(){
+	// 	$('[data-hook="nav-menu"]').toggle();
+	// });
+</script>

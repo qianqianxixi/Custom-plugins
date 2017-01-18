@@ -1,2 +1,2 @@
 # Custom-plugins
-practice、custom
+Usual practice

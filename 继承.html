@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name=”renderer”content=”webkit|ie-comp|ie-stand”>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script type="text/javascript" src="jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="file/ajaxfileupload.js"></script>
+	<script type="text/javascript" src="file/fileupload.js"></script>
+	<script type="text/javascript" src="file/jquery.upload.js"></script>
+	<script type="text/javascript" src="file/local.file.js"></script>
+	<script type="text/javascript" src="file/plugins.js"></script>
+</head>
+<body>
+	<button data-hook="nav-menu-toggle">Toggle Nav Menu</button>
+
+	<nav data-hook="nav-menu" id="nav-menu">
+		<ul>
+			<li><a href="/">West Philadelphia</a></li>
+			<li><a href="/cab">Cab Whistling</a></li>
+			<li><a href="/throne">Throne Sitting</a></li>
+		</ul>
+	</nav>
+</body>
+</html>
+
+<script>
+ function getOs(){ 
+    var OsObject = ""; 
+   if(navigator.userAgent.indexOf("MSIE")>0) { 
+        return "MSIE"; 
+   } 
+   else if(isFirefox=navigator.userAgent.indexOf("Firefox")>0){ 
+        return "Firefox"; 
+   } 
+   else if(isMozilla=navigator.userAgent.indexOf("Opera")>0){ //这个也被判断为chrome
+        return "Opera"; 
+   } 
+   else if(isFirefox=navigator.userAgent.indexOf("Chrome")>0){ 
+        return "Chrome"; 
+   } 
+   else if(isSafari=navigator.userAgent.indexOf("Safari")>0) { 
+        return "Safari"; 
+   }  
+   else if(isCamino=navigator.userAgent.indexOf("Camino")>0){ 
+        return "Camino"; 
+   } 
+   else if(isMozilla=navigator.userAgent.indexOf("Gecko/")>0){ 
+        return "Gecko"; 
+   }
+} 
+
+console.log(getOs());
+console.log(navigator.userAgent.toLowerCase());
+
+
+if(navigator.userAgent.indexOf("MSIE")>0){   
+      if(navigator.userAgent.indexOf("MSIE 6.0")>0){   
+        alert("ie6");    
+      }   
+      if(navigator.userAgent.indexOf("MSIE 7.0")>0){  
+        alert("ie7");   
+      }   
+      if(navigator.userAgent.indexOf("MSIE 9.0")>0 && !window.innerWidth){//这里是重点，你懂的
+        alert("ie8");  
+      }   
+      if(navigator.userAgent.indexOf("MSIE 9.0")>0 && window.innerWidth){  
+        alert("ie9");  
+      }   
+    } 
+
+
+//ie9 : Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0) 
+//ie8 : Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+//ie7 : Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; Tablet PC 2.0; .NET4.0E; .NET4.0C) 
+//Mozi: Mozilla/5.0 (Windows NT 6.1; rv:20.0) Gecko/20100101 Firefox/20.0
+//goog: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22
+//oper: Opera/9.80  (Windows NT 6.1; Edition IBIS) Presto/2.12.388 Version/12.14
+//appl: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/534.57.2 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2
+    function Person(name,age){  
+        this.name=name;  
+        this.age=age;  
+    }  
+    Person.prototype.sayHello=function(){  
+        console.log("使用原型得到Name："+this.name);  
+    }  
+    var per=new Person("马小倩",21);  
+    per.sayHello(); //输出：使用原型得到Name:马小倩  
+
+    function Person(name,age){
+      this.name = name;
+      this.age = age;
+    }
+
+    Person.prototype.say=function(){
+      console.log("hello");
+    }
+    var lihua = new Person('lihua','21');
+    lihua.say();
+    
+    var i = 1,j = 2;
+    $("body").append('<div class="number-cell" id="number-cell-'+ i +' - '+ j +' "></div>')
+</script>
